@@ -152,6 +152,10 @@ CORS_ALLOW_HEADERS = [
     'x-requested-with',
 ]
 
+# Additional CORS settings for cross-domain cookies
+CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken']
+CORS_ALLOW_ALL_ORIGINS = False
+
 # Session Settings
 SESSION_COOKIE_SAMESITE = 'None' if not DEBUG else 'Lax'
 SESSION_COOKIE_SECURE = not DEBUG  # True in production with HTTPS
