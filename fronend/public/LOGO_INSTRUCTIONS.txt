@@ -1,0 +1,22 @@
+ANANTHAM LOGO SETUP INSTRUCTIONS
+=================================
+
+Please save your ANANTHAM logo image with the following specifications:
+
+1. File name: anantham-logo.png
+2. Location: This folder (fronend/public/)
+3. Recommended size: 500x500 pixels or higher (square format)
+4. Format: PNG with transparent background (preferred)
+
+The logo should be the brown/gold circular design with the smile symbol that you showed in the images.
+
+After saving the logo:
+1. Refresh your browser
+2. Navigate to Products page
+3. You'll see your actual logo on the bottle label instead of the wheat icon
+
+The logo is already configured in:
+- /products page (product card)
+- /products/ragi-java page (full detail page)
+
+Current path: c:\Users\Welcome\Desktop\AtharvChoudhary\highonchem\fronend\public\
