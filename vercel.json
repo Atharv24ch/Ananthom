@@ -1,0 +1,6 @@
+{
+  "builds": [
+    { "src": "fronend/package.json", "use": "@vercel/next" }
+  ],
+  "routes": []
+}
