@@ -25,7 +25,8 @@ def csrf_view(request):
     """
     Get CSRF token
     """
-    return Response({'csrfToken': get_token(request)})
+    token = get_token(request)
+    return Response({'detail': 'CSRF cookie set', 'csrfToken': token})
 
 
 @api_view(['POST'])

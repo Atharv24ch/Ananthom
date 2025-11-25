@@ -16,15 +16,29 @@ export function getCsrfToken(): string | null {
       }
     }
   }
+  
+  // If no cookie, try to get from sessionStorage as fallback
+  if (!cookieValue && typeof sessionStorage !== 'undefined') {
+    cookieValue = sessionStorage.getItem('csrftoken');
+  }
+  
   return cookieValue;
 }
 
 // Fetch CSRF token from Django
 export async function fetchCsrfToken(): Promise<void> {
   try {
-    await fetch(`${API_URL}/auth/csrf/`, {
+    const response = await fetch(`${API_URL}/auth/csrf/`, {
       credentials: 'include',
     });
+    
+    if (response.ok) {
+      const data = await response.json();
+      // Store in sessionStorage as backup
+      if (data.csrfToken && typeof sessionStorage !== 'undefined') {
+        sessionStorage.setItem('csrftoken', data.csrfToken);
+      }
+    }
   } catch (err) {
     console.error('Failed to fetch CSRF token:', err);
   }
