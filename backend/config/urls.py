@@ -29,8 +29,31 @@ def api_root(request):
         }
     })
 
+def api_info(request):
+    """API information endpoint"""
+    return JsonResponse({
+        'message': 'Ananthom API',
+        'version': '1.0',
+        'available_endpoints': {
+            'auth': {
+                'csrf': '/api/auth/csrf/',
+                'register': '/api/auth/register/',
+                'login': '/api/auth/login/',
+                'logout': '/api/auth/logout/',
+                'check': '/api/auth/check/',
+                'profile': '/api/auth/profile/',
+                'profile_update': '/api/auth/profile/update/',
+                'subscriptions': '/api/auth/subscriptions/',
+                'create_subscription': '/api/auth/subscriptions/create/',
+                'create_payment_order': '/api/auth/payment/create-order/',
+                'verify_payment': '/api/auth/payment/verify/',
+            }
+        }
+    })
+
 urlpatterns = [
     path('', api_root, name='api-root'),
+    path('api/', api_info, name='api-info'),
     path('admin/', admin.site.urls),
     path('api/auth/', include('accounts.urls')),
 ]
