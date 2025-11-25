@@ -34,17 +34,26 @@ def register_view(request):
     """
     Register a new user
     """
-    serializer = RegisterSerializer(data=request.data)
-    if serializer.is_valid():
-        user = serializer.save()
-        # Create user profile
-        UserProfile.objects.create(user=user)
-        login(request, user)
+    try:
+        serializer = RegisterSerializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.save()
+            # Create user profile
+            UserProfile.objects.create(user=user)
+            login(request, user)
+            return Response({
+                'user': UserSerializer(user).data,
+                'message': 'User registered successfully'
+            }, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    except Exception as e:
+        import traceback
+        print(f"Registration error: {str(e)}")
+        print(traceback.format_exc())
         return Response({
-            'user': UserSerializer(user).data,
-            'message': 'User registered successfully'
-        }, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            'error': 'Registration failed',
+            'detail': str(e)
+        }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 @api_view(['POST'])

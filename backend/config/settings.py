@@ -28,8 +28,10 @@ SECRET_KEY = config('SECRET_KEY', default='django-insecure-2jhqpmtmcmdzlgj3b_1^x
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1').split(',')
+# Clean up ALLOWED_HOSTS - remove empty strings and whitespace
+ALLOWED_HOSTS = [host.strip() for host in ALLOWED_HOSTS if host.strip()]
 if not DEBUG:
-    ALLOWED_HOSTS.append('.onrender.com')
+    ALLOWED_HOSTS.extend(['.onrender.com', 'ananthom-backend.onrender.com'])
 
 
 # Application definition
