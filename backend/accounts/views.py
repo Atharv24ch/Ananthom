@@ -31,11 +31,13 @@ def csrf_view(request):
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
-@csrf_exempt
 def register_view(request):
     """
-    Register a new user
+    Register a new user - CSRF exempt for cross-domain support
     """
+    # Manually bypass CSRF for this view
+    request._dont_enforce_csrf_checks = True
+    
     try:
         serializer = RegisterSerializer(data=request.data)
         if serializer.is_valid():
@@ -60,11 +62,13 @@ def register_view(request):
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
-@csrf_exempt
 def login_view(request):
     """
-    Login user
+    Login user - CSRF exempt for cross-domain support
     """
+    # Manually bypass CSRF for this view
+    request._dont_enforce_csrf_checks = True
+    
     serializer = LoginSerializer(data=request.data)
     if serializer.is_valid():
         username = serializer.validated_data['username']
