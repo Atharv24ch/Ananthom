@@ -182,7 +182,7 @@ LOGGING = {
 # CORS Settings
 CORS_ALLOWED_ORIGINS = config(
     'CORS_ALLOWED_ORIGINS',
-    default='http://localhost:3000,http://127.0.0.1:3000,https://ananthomss.vercel.app'
+    default='https://ananthomss.vercel.app,https://ananthomss-git-main-atharv-choudharys-projects.vercel.app,https://ananthomss-atharv-choudharys-projects.vercel.app'
 ).split(',')
 
 CORS_ALLOW_CREDENTIALS = True
@@ -213,9 +213,11 @@ CSRF_COOKIE_SAMESITE = 'None' if not DEBUG else 'Lax'
 CSRF_COOKIE_SECURE = not DEBUG  # True in production with HTTPS
 CSRF_COOKIE_HTTPONLY = False  # Allow JavaScript to read CSRF token
 CSRF_COOKIE_NAME = 'csrftoken'
+CSRF_COOKIE_DOMAIN = None  # Allow cookies on all domains
+CSRF_HEADER_NAME = 'HTTP_X_CSRFTOKEN'
 CSRF_TRUSTED_ORIGINS = config(
     'CSRF_TRUSTED_ORIGINS',
-    default='http://localhost:3000,http://127.0.0.1:3000,https://ananthomss.vercel.app'
+    default='https://ananthomss.vercel.app,https://ananthomss-git-main-atharv-choudharys-projects.vercel.app,https://ananthomss-atharv-choudharys-projects.vercel.app'
 ).split(',')
 CSRF_USE_SESSIONS = False
 
