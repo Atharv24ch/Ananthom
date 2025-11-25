@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 def api_root(request):
     """Root endpoint to verify API is running"""
