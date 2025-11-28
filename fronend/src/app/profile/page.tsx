@@ -168,7 +168,7 @@ export default function ProfilePage() {
     <div className="min-h-screen bg-gradient-to-b from-[#FFF8E1] via-[#EFEBE9] to-[#FFF8E1]">
       {/* Header */}
       <header className="bg-gradient-to-r from-[#3E2723] to-[#5D4037] border-b border-[#D4AF37]">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="container mx-auto px-2 py-3 flex items-center justify-between">
           <button
             onClick={() => router.push('/')}
             className="text-[#FFF8E1] hover:text-[#D4AF37] transition-colors flex items-center gap-2 font-semibold"
@@ -188,7 +188,7 @@ export default function ProfilePage() {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-12">
+      <main className="container mx-auto px-2 py-6 md:py-12">
         {/* Success Message */}
         {showSuccess && (
           <motion.div

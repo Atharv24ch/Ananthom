@@ -34,10 +34,10 @@ export default function ProductsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#FFF8E1] via-[#EFEBE9] to-[#FFF8E1]">
       <header className="bg-gradient-to-r from-[#3E2723] to-[#5D4037] border-b border-[#D4AF37] sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="container mx-auto px-2 py-3 flex items-center justify-between">
           <button
             onClick={() => router.push('/')}
-            className="text-[#FFF8E1] hover:text-[#D4AF37] transition-colors flex items-center gap-2 font-semibold"
+            className="text-[#FFF8E1] hover:text-[#D4AF37] transition-colors flex items-center gap-1 font-semibold text-sm md:text-base"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -112,12 +112,12 @@ export default function ProductsPage() {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-16">
+      <main className="container mx-auto px-2 py-8 md:py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="max-w-7xl mx-auto"
+          className="w-full mx-auto"
         >
           <motion.div
             whileHover={{ y: -5 }}

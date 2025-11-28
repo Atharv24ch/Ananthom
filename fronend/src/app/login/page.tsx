@@ -113,11 +113,11 @@ export default function LoginWithAddressPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center py-12 px-4">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-2xl p-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center py-6 md:py-12 px-2">
+      <div className="max-w-md w-full bg-white rounded-2xl shadow-2xl p-6 md:p-8">
         {isLogin ? (
           <>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6 text-center">
               Login to Subscribe
             </h2>
             <form onSubmit={handleLogin} className="space-y-4">
@@ -173,10 +173,10 @@ export default function LoginWithAddressPage() {
           </>
         ) : (
           <>
-            <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 text-center">
               Add Your Address
             </h2>
-            <p className="text-gray-600 mb-6 text-center text-sm">
+            <p className="text-gray-600 mb-4 md:mb-6 text-center text-sm">
               We need your address for subscription delivery
             </p>
             

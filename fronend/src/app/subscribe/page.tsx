@@ -136,7 +136,7 @@ export default function SubscribePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A] py-20 px-4 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A] py-12 md:py-20 px-2 relative overflow-hidden">
       {/* Animated Background Gradient Blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -167,7 +167,7 @@ export default function SubscribePage() {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10" ref={containerRef}>
+      <div className="w-full mx-auto relative z-10" ref={containerRef}>
         {/* Hero Section */}
         <motion.div
           className="text-center mb-16"

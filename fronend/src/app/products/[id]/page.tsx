@@ -89,7 +89,7 @@ export default function ProductPage({ params }: ProductPageProps) {
       </div>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 py-20">
+      <section className="relative min-h-screen flex items-center justify-center px-2 py-12 md:py-20">
         <motion.div
           className="absolute inset-0 opacity-10"
           style={{ y: backgroundY }}
@@ -97,7 +97,7 @@ export default function ProductPage({ params }: ProductPageProps) {
           <div className="w-full h-full bg-[url('/pattern.svg')] bg-repeat" />
         </motion.div>
 
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
+        <div className="w-full mx-auto grid lg:grid-cols-2 gap-6 md:gap-12 items-center relative z-10">
           {/* Product Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}

@@ -11,9 +11,9 @@ export default function CartPage() {
     return (
       <div className="min-h-screen bg-gray-50">
         <Header />
-        <main className="container mx-auto px-4 py-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-8">Shopping Cart</h1>
-          <div className="bg-white rounded-lg shadow-md p-8 text-center">
+        <main className="container mx-auto px-2 py-6 md:py-8">
+          <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6 md:mb-8">Shopping Cart</h1>">Shopping Cart</h1>
+          <div className="bg-white rounded-lg shadow-md p-6 md:p-8 text-center">
             <p className="text-gray-600 mb-4">Your cart is empty. Start shopping to add items!</p>
             <Link
               href="/products"
@@ -33,9 +33,9 @@ export default function CartPage() {
       <main className="container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold text-gray-900 mb-8">Shopping Cart</h1>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 space-y-4">
+          <div className="lg:col-span-2 space-y-3">
             {cart.map((item) => (
-              <div key={item.id} className="bg-white rounded-lg shadow-md p-6">
+              <div key={item.id} className="bg-white rounded-lg shadow-md p-4 md:p-6">
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <Link href={`/products/${item.id}`}>

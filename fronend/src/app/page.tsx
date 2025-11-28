@@ -32,27 +32,30 @@ export default function Home() {
 
   return (
     <div className="fixed inset-0 w-full h-full overflow-hidden bg-gradient-to-br from-amber-900 via-amber-800 to-amber-950">
+      {/* Animation Container - scaled for mobile */}
       <div 
         data-us-project="KZ5tVUOUmE7H92J9Vsig" 
+        className="absolute inset-0"
         style={{
-          width: '100vw', 
-          height: '100vh',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0
+          width: '100%', 
+          height: '100%',
+          minHeight: '100vh',
+          minWidth: '100vw',
+          transform: 'scale(1)',
+          transformOrigin: 'center center'
         }}
       />
       
-      {/* Products Button - Responsive */}
-      <div className="absolute bottom-20 md:bottom-32 left-1/2 transform -translate-x-1/2 z-50 px-4 w-full max-w-xs">
-        <button 
-          onClick={() => router.push('/products')}
-          className="w-full bg-gradient-to-r from-amber-600 to-amber-800 text-white px-8 md:px-12 py-3 md:py-4 rounded-full font-bold text-lg md:text-xl hover:from-amber-700 hover:to-amber-900 transition-all shadow-2xl hover:shadow-amber-500/50 hover:scale-105 active:scale-95 touch-manipulation"
-        >
-          Products
-        </button>
+      {/* Products Button - Mobile Optimized */}
+      <div className="absolute bottom-12 left-0 right-0 z-50 px-4">
+        <div className="max-w-md mx-auto">
+          <button 
+            onClick={() => router.push('/products')}
+            className="w-full bg-gradient-to-r from-amber-600 to-amber-800 text-white px-8 py-4 rounded-full font-bold text-lg hover:from-amber-700 hover:to-amber-900 transition-all shadow-2xl hover:shadow-amber-500/50 active:scale-95 touch-manipulation"
+          >
+            Products
+          </button>
+        </div>
       </div>
     </div>
   );
