@@ -45,11 +45,11 @@ export default function Home() {
         }}
       />
       
-      {/* Products Button */}
-      <div className="absolute bottom-32 left-1/2 transform -translate-x-1/2 z-50">
+      {/* Products Button - Responsive */}
+      <div className="absolute bottom-20 md:bottom-32 left-1/2 transform -translate-x-1/2 z-50 px-4 w-full max-w-xs">
         <button 
           onClick={() => router.push('/products')}
-          className="bg-gradient-to-r from-amber-600 to-amber-800 text-white px-12 py-4 rounded-full font-bold text-xl hover:from-amber-700 hover:to-amber-900 transition-all shadow-2xl hover:shadow-amber-500/50 hover:scale-105"
+          className="w-full bg-gradient-to-r from-amber-600 to-amber-800 text-white px-8 md:px-12 py-3 md:py-4 rounded-full font-bold text-lg md:text-xl hover:from-amber-700 hover:to-amber-900 transition-all shadow-2xl hover:shadow-amber-500/50 hover:scale-105 active:scale-95 touch-manipulation"
         >
           Products
         </button>

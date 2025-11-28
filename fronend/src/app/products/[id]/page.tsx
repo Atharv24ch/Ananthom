@@ -129,6 +129,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                         src="/anantham-logo.png"
                         alt="ANANTHAM Logo"
                         fill
+                        sizes="128px"
                         className="object-contain"
                         priority
                       />

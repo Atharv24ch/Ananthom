@@ -78,8 +78,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = async () => {
     try {
+      // Ensure we have a CSRF token before logging out
+      await fetchCsrfToken();
+      const csrfToken = getCsrfToken();
+      
       await fetch(`${API_URL}/auth/logout/`, {
         method: 'POST',
+        headers: {
+          'X-CSRFToken': csrfToken || '',
+        },
         credentials: 'include',
       });
     } catch (error) {

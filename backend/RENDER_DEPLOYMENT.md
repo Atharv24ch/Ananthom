@@ -1,6 +1,7 @@
 # Render Deployment Guide for Django Backend
 
 ## Prerequisites
+
 1. Render account (sign up at [render.com](https://render.com))
 2. Backend code pushed to GitHub
 
@@ -36,17 +37,17 @@
 
 In the **Environment** section, add these variables:
 
-| Key | Value | Notes |
-|-----|-------|-------|
-| `SECRET_KEY` | Generate a new secret key | Use [Djecrety](https://djecrety.ir/) or Django's `get_random_secret_key()` |
-| `DEBUG` | `False` | Never set to True in production |
-| `DATABASE_URL` | *Paste Internal Database URL* | From PostgreSQL database you created |
-| `ALLOWED_HOSTS` | `your-app-name.onrender.com` | Replace with your actual Render app name |
-| `CORS_ALLOWED_ORIGINS` | `https://ananthomss.vercel.app` | Your Vercel frontend URL |
-| `CSRF_TRUSTED_ORIGINS` | `https://ananthomss.vercel.app` | Your Vercel frontend URL |
-| `RAZORPAY_KEY_ID` | Your Razorpay key | From Razorpay dashboard |
-| `RAZORPAY_KEY_SECRET` | Your Razorpay secret | From Razorpay dashboard |
-| `PYTHON_VERSION` | `3.11.0` | Optional, specified in runtime.txt |
+| Key                    | Value                           | Notes                                                                      |
+| ---------------------- | ------------------------------- | -------------------------------------------------------------------------- |
+| `SECRET_KEY`           | Generate a new secret key       | Use [Djecrety](https://djecrety.ir/) or Django's `get_random_secret_key()` |
+| `DEBUG`                | `False`                         | Never set to True in production                                            |
+| `DATABASE_URL`         | _Paste Internal Database URL_   | From PostgreSQL database you created                                       |
+| `ALLOWED_HOSTS`        | `your-app-name.onrender.com`    | Replace with your actual Render app name                                   |
+| `CORS_ALLOWED_ORIGINS` | `https://ananthomss.vercel.app` | Your Vercel frontend URL                                                   |
+| `CSRF_TRUSTED_ORIGINS` | `https://ananthomss.vercel.app` | Your Vercel frontend URL                                                   |
+| `RAZORPAY_KEY_ID`      | Your Razorpay key               | From Razorpay dashboard                                                    |
+| `RAZORPAY_KEY_SECRET`  | Your Razorpay secret            | From Razorpay dashboard                                                    |
+| `PYTHON_VERSION`       | `3.11.0`                        | Optional, specified in runtime.txt                                         |
 
 ### 4. Deploy
 
@@ -73,37 +74,45 @@ You should see a successful response (no 404 or 500 errors).
 ## Important Notes
 
 ### Free Tier Limitations
+
 - Render's free tier spins down after 15 minutes of inactivity
 - First request after spin-down may take 30-60 seconds
 - Database is also free tier with 90-day expiration (can be renewed)
 
 ### Security Settings
+
 - `SESSION_COOKIE_SECURE` and `CSRF_COOKIE_SECURE` are set to `True` in production (HTTPS required)
 - `SESSION_COOKIE_SAMESITE` and `CSRF_COOKIE_SAMESITE` are set to `'None'` for cross-domain cookies
 
 ### Database Backups
+
 Free tier doesn't include automatic backups. For production:
+
 - Upgrade to a paid database plan, or
 - Set up manual backup procedures
 
 ## Troubleshooting
 
 **Build fails:**
+
 - Check build logs in Render dashboard
 - Ensure `build.sh` has correct permissions
 - Verify all required packages in `requirements.txt`
 
 **500 errors:**
+
 - Check application logs in Render dashboard
 - Verify environment variables are set correctly
 - Check `DATABASE_URL` is the Internal Database URL
 
 **CORS errors:**
+
 - Verify `CORS_ALLOWED_ORIGINS` includes your Vercel domain (with `https://`)
 - Check `CSRF_TRUSTED_ORIGINS` is set correctly
 - Ensure no trailing slashes in origins
 
 **Database connection errors:**
+
 - Use the **Internal Database URL** (not External)
 - Ensure database and web service are in the same region
 - Check database is running and not suspended

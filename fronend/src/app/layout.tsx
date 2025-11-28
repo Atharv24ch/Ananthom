@@ -28,6 +28,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "ANANTHAM - Traditional Ragi Java",
   description: "Fresh Ragi Java delivered before 8 AM. Premium traditional wellness drink for your family.",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
 };
 
 export default function RootLayout({
@@ -37,6 +38,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (typeof window !== 'undefined') {
+                const originalLog = console.log;
+                console.log = function(...args) {
+                  const message = args.join(' ');
+                  if (
+                    message.includes('Download the React DevTools') ||
+                    message.includes('[HMR] connected') ||
+                    message.includes('Made with unicorn.studio')
+                  ) {
+                    return;
+                  }
+                  originalLog.apply(console, args);
+                };
+              }
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${inter.variable} antialiased`}
       >

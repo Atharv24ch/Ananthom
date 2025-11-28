@@ -155,6 +155,7 @@ export default function ProductsPage() {
                       src="/refilled.jpg"
                       alt="ANANTHAM Ragi Java Product"
                       fill
+                      sizes="(max-width: 768px) 100vw, 320px"
                       className="object-contain drop-shadow-2xl"
                       priority
                     />
