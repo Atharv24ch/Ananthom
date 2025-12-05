@@ -46,8 +46,8 @@ export default function Home() {
         }}
       />
       
-      {/* Products Button - Mobile Optimized */}
-      <div className="absolute bottom-12 left-0 right-0 z-50 px-4">
+      {/* Products Button - Centered on Mobile, Bottom on Desktop */}
+      <div className="absolute top-1/2 md:top-auto md:bottom-12 left-0 right-0 -translate-y-1/2 md:translate-y-0 z-50 px-4">
         <div className="max-w-md mx-auto">
           <button 
             onClick={() => router.push('/products')}
